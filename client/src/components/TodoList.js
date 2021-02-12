@@ -2,19 +2,33 @@ import {Component} from 'react'
 import {get, post} from "../api"
 
 class TodoList extends Component {
-    // get("/test")
-    // .then(resp => {
+    constructor(props) {
+        super(props);
+        this.state = {
+            term: "",
+            items: []
+        };
+        this.addItem = this.addItem.bind(this);
+    }
 
-    // }).catch(err => {
+    onChange = (event) => {
+        this.setState({term: event.target.value});
+    }
 
-    // })
+    onSubmit = (event) => {
+        event.preventDefault();
+        this.setState({
+            term: '',
+            items: [...this.state.items, this.state.term]
+        });
+    }
 
     render() {
         return (
             <div>
-                <h1>Todo List</h1>
-                <form name="TodoForm">
-                    <input type="text" name="todo" id="name" placeholder="Enter task" />
+                <h1>Hack4Impact To-Do List</h1>
+                <form onSubmit={this.onSubmit} name="TodoForm">
+                    <input value={this.state.term} onChange={this.onChange} type="text" name="todo" id="name" placeholder="Enter task" />
                     <button type="submit">Add</button>
                 </form>
             </div>
