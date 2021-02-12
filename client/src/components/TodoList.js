@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {get, post} from "../api"
+import Todos from './Todos'
 
 class TodoList extends Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class TodoList extends Component {
             term: "",
             items: []
         };
-        this.addItem = this.addItem.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange = (event) => {
@@ -31,6 +33,7 @@ class TodoList extends Component {
                     <input value={this.state.term} onChange={this.onChange} type="text" name="todo" id="name" placeholder="Enter task" />
                     <button type="submit">Add</button>
                 </form>
+                <Todos items={this.state.items} />
             </div>
         )
     }
