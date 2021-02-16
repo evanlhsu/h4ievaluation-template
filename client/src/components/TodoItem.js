@@ -5,6 +5,10 @@ class TodoItem extends Component {
     return (
       <li key={this.props.index}>
         {this.props.item}
+        <div class="divider"/>
+        <button type="submit">
+          Delete
+        </button>
       </li>
     )
   }
