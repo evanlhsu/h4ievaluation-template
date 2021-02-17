@@ -9,6 +9,12 @@ body {
   background-color: lightskyblue;
 }
 
+.divider {
+  width: 5px;
+  height: auto;
+  display: inline-block;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
